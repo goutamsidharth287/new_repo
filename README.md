@@ -118,24 +118,6 @@ request, so subsequent requests are authenticated automatically.
 |---|---|
 | `VITE_API_URL` | Base URL of the backend API |
 
-## Deployment
-
-**Suggested free-tier path (no AWS cost required):**
-1. **Database:** Create a free Postgres instance on [Neon](https://neon.tech) or
-   [Supabase](https://supabase.com). Copy the connection string into `DATABASE_URL`.
-2. **Backend:** Deploy the `backend/` folder to [Render](https://render.com) as a Web Service.
-   - Build command: `npm install && npx prisma generate && npm run build`
-   - Start command: `npm run prisma:deploy && npm start`
-   - Add `DATABASE_URL`, `JWT_SECRET`, `PORT` as environment variables in Render's dashboard.
-   - After first deploy, run the seed script once via Render's shell: `npm run seed`.
-3. **Frontend:** Deploy the `frontend/` folder to [Vercel](https://vercel.com) or
-   [Netlify](https://netlify.com) as a static site (build command `npm run build`, output
-   directory `dist`). Set `VITE_API_URL` to the deployed backend URL.
-
-AWS deployment (per the assignment's "bonus" note) was not pursued here in favor of the free
-tier path above, to avoid incurring cost, but the containerized Node backend and static
-frontend build would deploy to AWS (ECS/Elastic Beanstalk + S3/CloudFront + RDS) with the same
-environment variables.
 
 ## Assumptions
 
